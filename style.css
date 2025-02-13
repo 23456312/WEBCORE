@@ -1,6 +1,7 @@
 
 
         body{
+
             background-image: url(Diseño\ sin\ título\ \(3\).png);
             background-repeat: no-repeat;
             background-position: center;
@@ -17,6 +18,15 @@
         h2{text-align: center;}
         h3{text-align: center;}
         p {text-align: center;}
+
+        div{
+          
+          background-color: #a2d2ff;
+          width: 300px;
+          border: 15px solid #bde0fe;
+          padding: 50px;
+          margin: 50px;
+        }
 
         img {
             display: block;
