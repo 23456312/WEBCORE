@@ -1,0 +1,141 @@
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body{
+
+    background-image: url(dee248576088a0c895c8df71e464def6.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+body {
+    background-color: black;
+    color: limegreen;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    font-size: 24px;
+    padding: 10px;
+    background: black;
+}
+
+.profile {
+    display: flex;
+    margin-top: 20px;
+}
+
+.sidebar {
+    width: 30%;
+    background: #111;
+    padding: 15px;
+    border: 2px solid limegreen;
+}
+
+.sidebar h2 {
+    color: white;
+    text-align: center;
+}
+
+.profile-pic {
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid limegreen;
+}
+
+.contact button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    background: limegreen;
+    color: black;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.main-content {
+    width: 70%;
+    background: #222;
+    padding: 20px;
+    border: 2px solid limegreen;
+}
+
+.status {
+    color: red;
+    font-weight: bold;
+}
+
+.posts {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.post-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+}
+
+.post {
+    flex: 1 1 calc(25% - 20px); 
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #ccc; 
+    padding: 10px;
+}
+
+.post-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    border: 2px solid #32cd32;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #32cd32;
+    margin-top: 10px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #000000;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
