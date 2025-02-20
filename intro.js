@@ -70,3 +70,6 @@ function invers(why){
 
 let result = invers(12345);
 document.write("Numero inverso " +result);
+
+
+
