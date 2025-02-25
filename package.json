@@ -1,0 +1,23 @@
+{
+  "name": "pookie",
+  "version": "1.0.0",
+  "description": "Lab11?",
+  "main": "ash.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/23456312/WEBCORE.git"
+  },
+  "keywords": [
+    "npm",
+    "thing"
+  ],
+  "author": "Sebastian Perez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/23456312/WEBCORE/issues"
+  },
+  "homepage": "https://github.com/23456312/WEBCORE#readme"
+}
