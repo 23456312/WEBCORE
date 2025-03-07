@@ -1,5 +1,10 @@
 <%- include('includes/_header.ejs') %>
 
+<% if(info != '') { %>
+    <div class="notification is-info">
+        <%= info %>
+    </div>
+<% } %>
 
 
 <br><br>
@@ -8,7 +13,8 @@
     <div class="card">
         <div class="card-content">
             <p class="title">
-                <%= personaje.nombre %>
+                <%= personaje.nombre %><br>
+                
             </p>
         </div>
     </div>

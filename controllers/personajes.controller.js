@@ -1,3 +1,4 @@
+const { info } = require('console');
 const Personaje = require('../models/personaje.model');
 
 exports.get_agregar = (request, response, next) => {
@@ -11,22 +12,36 @@ exports.get_agregar = (request, response, next) => {
 exports.post_agregar = (request, response, next) => {
     console.log(request.body);
     const personaje = new Personaje(request.body.nombre);
-    personaje.save();
-
-    response.setHeader('Set-Cookie', `ultimo_personaje=${personaje.nombre}`);
-
-
-    console.log(Personaje.fetchAll());
-    response.redirect('/personajes');
+    personaje.save()
+        .then(() => {
+            request.session.info = `Personaje ${personaje.nombre} guardado.`;
+            response.redirect('/personajes');
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 };
 
-exports.get_lista = (request, response, next) => {
-    console.log(request.get('Cookie')); 
-    response.render('lista_personajes', {
-        personajes: Personaje.fetchAll(),
-        isLoggedIn: request.session.isLoggedIn || false,
-        username: request.session.username || '',
-    });
+exports.get_lista = (request, response, next) => { 
+    const mensaje = request.session.info || '';
+    if (request.session.info) {
+        request.session.info = '';
+    }
+
+    Personaje.fetch(request.params.id)
+        .then(([rows, fielData]) => {
+            console.log(fielData);
+            console.log(rows);
+            response.render('lista_personajes', {
+                personajes: rows,
+                isLoggedIn: request.session.isLoggedIn || false,
+                username: request.session.username || '',
+                info: mensaje,
+            });
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 };
 
 exports.get_mostrar = (request, response, next) => {
