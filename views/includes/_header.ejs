@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hiya! Welcome to the pjsk sekai hub core ness full with wonderhoy and cake</title>
+    <title>Cheewbaca!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
   </head>
   <body>
@@ -31,9 +31,11 @@
               Home
             </a>
       
-            <a href="/personajes/agregar" class="navbar-item">
+            <% if (isLoggedIn) { %>
+            <a href="/personajes" class="navbar-item">
               Personajes
             </a>
+            <% } %>
       
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
@@ -67,7 +69,7 @@
                     Log out
                   </a>  
                 <% } else { %>
-                <a class="button is-primary">
+                <a href="/users/signup" class="button is-primary">
                   <strong>Sign up</strong>
                 </a>
                 <a href="/users/login" class="button is-light">
@@ -83,5 +85,5 @@
     <section class="section">
         <div class="container">
         <h1 class="title">
-            Grrr get out 
+            Hello there
         </h1>
