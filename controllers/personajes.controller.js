@@ -1,11 +1,13 @@
 const Personaje = require('../models/personaje.model');
 
 exports.get_agregar = (request, response, next) => {
+    console.log(request.session);
     response.render('agregar_personaje', {
-      isLoggedIn: request.session.isLoggedIn || false,
-      username: request.session.username || '',
+        isLoggedIn: request.session.isLoggedIn || false,
+        username: request.session.username || '',
+        csrfToken: request.csrfToken(),
     });
-  };
+};
 
 exports.post_agregar = (request, response, next) => {
     console.log(request.body);
@@ -35,6 +37,7 @@ exports.get_lista = (request, response, next) => {
                 isLoggedIn: request.session.isLoggedIn || false,
                 username: request.session.username || '',
                 info: mensaje,
+                privilegios: request.session.privilegios || [],
             });
         })
         .catch((error) => {
