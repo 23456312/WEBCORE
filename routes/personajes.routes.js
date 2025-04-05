@@ -18,6 +18,10 @@ router.post('/agregar', isAuth, canCreatePersonaje, personajes_controller.post_a
 
 router.get('/mostrar', isAuth, personajes_controller.get_mostrar);
 
+router.get('/buscar/:valor', isAuth, canViewPersonaje, personajes_controller.get_buscar);
+router.get('/buscar', isAuth, canViewPersonaje, personajes_controller.get_buscar);
+
+
 router.get('/:id', isAuth, canViewPersonaje, personajes_controller.get_lista);
 router.get('/', isAuth, canViewPersonaje, personajes_controller.get_lista);
 
