@@ -2,14 +2,23 @@
 const express = require('express');
 const app = express();
 
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
+const session = require('express-session');
+
+app.use(session({
+    secret: 'mi string secreto que debe ser un string aleatorio muy largo, no como éste', 
+    resave: false, //La sesión no se guardará en cada petición, sino sólo se guardará si algo cambió 
+    saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
+}));
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Middleware
-app.use((request, response, next) => {
-    console.log('Middleware ejecutándose para todas las rutas');
-    next(); // Le permite a la petición avanzar hacia el siguiente middleware
-});
 
 
 app.use('/temu', (request, response, next) => {
@@ -25,19 +34,17 @@ app.use('/Game', (request, response, next) => {
 });
 
 
+const rutasUsuarios = require('./routes/users.routes');
+app.use('/users', rutasUsuarios);
+
 const rutasPersonajes = require('./routes/personajes.routes');
 app.use('/personajes', rutasPersonajes);
 
-// Home route (IMPORTANT GET)
-app.get('/', (request, response) => {
-    console.log("Inside Home Route");
-    response.send('Bienvenido a TernuCoreness');
-});
-
-// If no route matches, the following middleware should trigger
-app.use((request, response) => {
-    console.log('Inside 404 handler');
-    response.status(404).send("ERROR 404!!! Woop! YOU GOT ME! ");
+app.use((request, response, next) => {
+    console.log('Otro middleware!');
+    
+    //Manda la respuesta
+    response.status(404).send('Recurso no encontrado'); 
 });
 
 // Start the server
